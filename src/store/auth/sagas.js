@@ -82,7 +82,7 @@ function* getUserWorker(action) {
     yield put(getUserSuccess(response.data));
     yield put(push('/user'));
   } catch (error) {
-    console.log('catched error =>', { error });
+    console.log('caught error =>', { error });
     yield put(getUserError(error.response.data.message));
   }
 }
