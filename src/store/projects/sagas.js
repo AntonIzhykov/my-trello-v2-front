@@ -20,7 +20,7 @@ function* getAllProjectsWorker(action) {
     const response = yield call(getAllUsersProjects, token);
     yield put(getAllProjectsSuccess(response.data.userProjects));
   } catch (error) {
-    console.log('catched error =>', { error });
+    console.log('caught error =>', { error });
     yield put(errorHandler(error, getAllProjectsError));
   }
 }
@@ -36,7 +36,7 @@ function* createProjectsWorker(action) {
     yield put(createProjectSuccess());
     yield put(getAllProjectsRequest(token));
   } catch (error) {
-    console.log('catched error =>', { error });
+    console.log('caught error =>', { error });
     yield put(errorHandler(error, createProjectError));
   }
 }

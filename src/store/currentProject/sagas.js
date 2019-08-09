@@ -57,7 +57,7 @@ function* getCurrentProjectWorker(action) {
       yield put(getCurrentProjectSuccess({ ...currentProject }));
     }
   } catch (error) {
-    console.log('catched error =>', { error });
+    console.log('caught error =>', { error });
     yield put(errorHandler(error, getCurrentProjectError));
   }
 }
@@ -73,7 +73,7 @@ function* deleteProjectWorker(action) {
     yield put(deleteProjectSuccess(projectId));
     yield put(push('/user/projects'));
   } catch (error) {
-    console.log('catched error =>', { error });
+    console.log('caught error =>', { error });
     yield put(errorHandler(error, deleteProjectError));
   }
 }
@@ -94,7 +94,7 @@ function* updateProjectWorker(action) {
     const newResponse = yield call(updateProject, token, projectId, newProject);
     yield put(updateProjectSuccess(newResponse.data));
   } catch (error) {
-    console.log('catched error =>', { error });
+    console.log('caught error =>', { error });
     yield put(errorHandler(error, updateProjectError));
   }
 }
@@ -109,7 +109,7 @@ function* createListWorker(action) {
     const response = yield call(createList, token, projectId, listTitle);
     yield put(createNewListSuccess(response.data));
   } catch (error) {
-    console.log('catched error =>', { error });
+    console.log('caught error =>', { error });
     yield put(errorHandler(error, createNewListError));
   }
 }
@@ -124,7 +124,7 @@ function* deleteListWorker(action) {
     yield call(deleteList, token, projectId, listId);
     yield put(deleteListSuccess(listId));
   } catch (error) {
-    console.log('catched error =>', { error });
+    console.log('caught error =>', { error });
     yield put(errorHandler(error, deleteListError));
   }
 }
@@ -148,7 +148,7 @@ function* addNewCardToListWorker(action) {
 
     yield put(updateListRequest(token, projectId, listId, { ...response.data, cardList }));
   } catch (error) {
-    console.log('catched error =>', { error });
+    console.log('caught error =>', { error });
     yield put(errorHandler(error, deleteListError));
   }
 }
@@ -165,7 +165,7 @@ function* deleteCardWorker(action) {
     const cardList = oldCardList.filter(card => card._id !== cardId);
     yield put(updateListRequest(token, projectId, listId, { ...response.data, cardList }));
   } catch (error) {
-    console.log('catched error =>', { error });
+    console.log('caught error =>', { error });
     yield put(errorHandler(error, deleteListError));
   }
 }
@@ -180,7 +180,7 @@ function* updateListWorker(action) {
     const response = yield call(updateList, token, projectId, listId, data);
     yield put(updateListSuccess(listId, response.data.list));
   } catch (error) {
-    console.log('catched error =>', { error });
+    console.log('caught error =>', { error });
     yield put(errorHandler(error, updateListError));
   }
 }

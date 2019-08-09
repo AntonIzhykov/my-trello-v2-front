@@ -43,7 +43,7 @@ function* signinWorker(action) {
       yield put(getUserSuccess(localUser));
     }
   } catch (error) {
-    console.log('catched error =>', { error });
+    console.log('caught error =>', { error });
     yield put(signinError(error.response.data.message));
   }
 }
@@ -58,7 +58,7 @@ function* signupWorker(action) {
     const response = yield call(signUp, login, password);
     yield put(signupSuccess(response.data));
   } catch (error) {
-    console.log('catched error =>', { error });
+    console.log('caught error =>', { error });
     yield put(signupError(error.response.data.message));
   }
 }
@@ -97,7 +97,7 @@ function* logOutWorker() {
     TokenStorage.removeItemInSessionStorage();
     yield put(logOutSuccess());
   } catch (error) {
-    console.log('catched error =>', { error });
+    console.log('caught error =>', { error });
     yield put(logOutError(error.response.data.message));
   }
 }
