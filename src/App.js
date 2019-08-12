@@ -9,14 +9,14 @@ import { apiService } from './store/api';
 
 import SigninForm from './components/SigninForm';
 import SignupForm from './components/SignupForm';
-import Loading from 'components/Loading';
+import Loading from './components/Loading';
 import PrivateRoute from './components/PrivateRoute';
 import User from './components/User';
 import ProjectsList from './containers/ProjectsList';
 import ProjectPage from './containers/ProjectPage';
 
 import 'antd/dist/antd.css';
-import 'assets/css/main.css';
+import './assets/css/main.css';
 
 class App extends React.PureComponent {
   createLoadProgressBar = () => {
